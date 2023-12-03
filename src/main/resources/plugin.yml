@@ -1,0 +1,9 @@
+name: MiniBosses
+version: '${project.version}'
+main: net.pullolo.minibosses.MiniBosses
+api-version: '1.20'
+commands:
+  spawn:
+    description: Spawn mini bosses
+    usage: </command> <mob> <rarity>
+    permission: mb.spawn
