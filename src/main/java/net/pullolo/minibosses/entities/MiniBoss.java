@@ -94,7 +94,7 @@ public class MiniBoss {
         for (Entity e : entity.getNearbyEntities(5, 5, 5)){
             if (!(e instanceof Player)) continue;
             ((Player) e).playSound(e, Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
-            ((Player) e).damage(2*getMultiplier(rarity), e);
+            ((Player) e).damage(2*getMultiplier(rarity), entity);
             e.setVelocity(entity.getLocation().toVector().subtract(e.getLocation().toVector()).normalize().multiply(-1));
         }
     }
