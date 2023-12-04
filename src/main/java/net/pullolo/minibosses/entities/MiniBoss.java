@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
@@ -39,6 +41,7 @@ public class MiniBoss {
 
     private void setAttributesAndSpawn(){
         miniBosses.put(entity, this);
+        entity.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 200, 0));
         entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue()*getMultiplier(rarity)*1.6);
         entity.setHealth(entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
         entity.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue((100+getMultiplier(rarity)*10)/500);
