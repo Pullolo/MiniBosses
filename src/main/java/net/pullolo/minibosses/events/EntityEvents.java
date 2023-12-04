@@ -1,6 +1,7 @@
 package net.pullolo.minibosses.events;
 
 import net.pullolo.minibosses.entities.MiniBoss;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -20,6 +21,7 @@ import static net.pullolo.minibosses.entities.MiniBoss.miniBosses;
 public class EntityEvents implements Listener {
     @EventHandler
     public void onMobSpawn(EntitySpawnEvent event){
+        if (miniBosses.size()>=Bukkit.getWorlds().size()+Bukkit.getOnlinePlayers().size()) return;
         Random r = new Random();
         if (event.getEntity() instanceof Monster){
             if (r.nextInt(240)==0) new MiniBoss((LivingEntity) event.getEntity());
