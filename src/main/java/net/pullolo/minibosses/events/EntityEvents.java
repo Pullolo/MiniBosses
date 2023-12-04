@@ -46,6 +46,5 @@ public class EntityEvents implements Listener {
             miniBosses.get(event.getEntity()).onDeath(event.getDrops());
             miniBosses.remove(event.getEntity());
         }
-
     }
 }

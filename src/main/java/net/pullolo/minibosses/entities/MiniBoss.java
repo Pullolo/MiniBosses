@@ -52,6 +52,11 @@ public class MiniBoss {
             int s = 1;
             @Override
             public void run() {
+                if (!entity.isValid()){
+                    cancel();
+                    miniBosses.remove(entity);
+                    entity.remove();
+                }
                 if (s%6==0 && i==0 && playersClose(10)){
                     explode();
                 }
