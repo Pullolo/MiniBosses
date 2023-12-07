@@ -125,6 +125,7 @@ public class MiniBoss {
 
     public void notifyPlayersOnSpawn(){
         for (Player p : Bukkit.getOnlinePlayers()){
+            if (!p.getWorld().equals(entity.getWorld())) continue;
             if (p.getLocation().distance(entity.getLocation())<224){
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', getSpawnMessage()));
                 p.playSound(p, Sound.ENTITY_WITHER_SPAWN, 1, 1.8f);
